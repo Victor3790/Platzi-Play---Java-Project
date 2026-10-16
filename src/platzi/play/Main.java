@@ -15,6 +15,10 @@ public class Main {
     private static final int SALIR = 5;
 
     public static void main(String[] args) {
+        // Plataforma
+        Plataforma plataforma = new Plataforma(NOMBRE_PLATAFORMA, VERSION);
+        plataforma.mostrarInfo();
+
         while (true) {
             int opcionElegida = ScannerUtils.capturarNumero("""
                     Ingrese una opción:

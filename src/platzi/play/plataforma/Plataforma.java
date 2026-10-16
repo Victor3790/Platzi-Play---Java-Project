@@ -16,6 +16,10 @@ public class Plataforma {
         this.contenido = new ArrayList<>();
     }
 
+    public void mostrarInfo(){
+        System.out.println(this.getNombre() + " v" + this.getVersion());
+    }
+
     public void agregar(Pelicula elemento){
         this.contenido.add(elemento);
     }
