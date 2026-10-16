@@ -13,6 +13,7 @@ public class Main {
     // Constantes para opciones
     private static final int AGREGAR = 1;
     private static final int MOSTRAR = 2;
+    private static final int ELIMINAR = 4;
     private static final int SALIR = 5;
 
     public static void main(String[] args) {
@@ -49,6 +50,9 @@ public class Main {
                 }
                 case MOSTRAR -> {
                     plataforma.mostrarTitulos();
+                }
+                case ELIMINAR -> {
+                    // falta
                 }
                 case SALIR -> System.exit(0);
                 default -> System.out.println("Opción inválida, opción elegida: " + opcionElegida);
