@@ -12,6 +12,7 @@ public class Main {
 
     // Constantes para opciones
     private static final int AGREGAR = 1;
+    private static final int MOSTRAR = 2;
     private static final int SALIR = 5;
 
     public static void main(String[] args) {
@@ -46,8 +47,11 @@ public class Main {
                     plataforma.agregar(pelicula);
                     System.out.println("Número de elementos en la plataforma: " + plataforma.getContenido().size());
                 }
+                case MOSTRAR -> {
+                    plataforma.mostrarTitulos();
+                }
                 case SALIR -> System.exit(0);
-                default -> System.out.println("Opción elegida: " + opcionElegida);
+                default -> System.out.println("Opción inválida, opción elegida: " + opcionElegida);
             }
         }
     }
