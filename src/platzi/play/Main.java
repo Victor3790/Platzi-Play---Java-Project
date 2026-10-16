@@ -11,7 +11,8 @@ public class Main {
     private static final String VERSION = "1.0.0";
 
     // Constantes para opciones
-    private static final  int SALIR = 5;
+    private static final int AGREGAR = 1;
+    private static final int SALIR = 5;
 
     public static void main(String[] args) {
         while (true) {
@@ -25,6 +26,9 @@ public class Main {
                     """);
 
             switch (opcionElegida){
+                case AGREGAR -> {
+                    // falta
+                }
                 case SALIR -> System.exit(0);
                 default -> System.out.println("Opción elegida: " + opcionElegida);
             }
