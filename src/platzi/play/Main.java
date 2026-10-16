@@ -31,7 +31,20 @@ public class Main {
 
             switch (opcionElegida){
                 case AGREGAR -> {
-                    // falta
+                    System.out.println("---------------------------- \n");
+
+                    System.out.println("Datos de la película");
+
+                    String titulo = ScannerUtils.capturarTexto("Título");
+                    String genero = ScannerUtils.capturarTexto("Genero");
+                    int duracion = ScannerUtils.capturarNumero("Duración");
+                    double calificacion = ScannerUtils.capturarDecimal("Calificación");
+
+                    Pelicula pelicula = new Pelicula(titulo, duracion, genero, calificacion);
+
+                    // Añade pelicula a plataforma
+                    plataforma.agregar(pelicula);
+                    System.out.println("Número de elementos en la plataforma: " + plataforma.getContenido().size());
                 }
                 case SALIR -> System.exit(0);
                 default -> System.out.println("Opción elegida: " + opcionElegida);
