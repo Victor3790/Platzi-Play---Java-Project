@@ -7,17 +7,13 @@ import platzi.play.plataforma.Usuario;
 import platzi.play.util.ScannerUtils;
 
 public class Main {
-    public static final String NOMBRE_PLATAFORMA = "Platzi Play";
-    public static final String VERSION = "1.0.0";
+    private static final String NOMBRE_PLATAFORMA = "Platzi Play";
+    private static final String VERSION = "1.0.0";
+
+    // Constantes para opciones
+    private static final  int SALIR = 5;
 
     public static void main(String[] args) {
-
-        // 1. Agregar contenido
-        // 2. Mostrar todo
-        // 3. Buscar por título
-        // 4. Eliminar
-        // 5. Salir
-
         while (true) {
             int opcionElegida = ScannerUtils.capturarNumero("""
                     Ingrese una opción:
@@ -28,10 +24,9 @@ public class Main {
                     5. Salir
                     """);
 
-            System.out.println("Opción elegida: " + opcionElegida);
-
-            if (opcionElegida == 5) {
-                System.exit(0);
+            switch (opcionElegida){
+                case SALIR -> System.exit(0);
+                default -> System.out.println("Opción elegida: " + opcionElegida);
             }
         }
     }
