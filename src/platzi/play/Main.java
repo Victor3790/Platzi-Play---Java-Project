@@ -6,6 +6,8 @@ import platzi.play.plataforma.Plataforma;
 import platzi.play.plataforma.Usuario;
 import platzi.play.util.ScannerUtils;
 
+import java.util.List;
+
 public class Main {
     private static final String NOMBRE_PLATAFORMA = "Platzi Play";
     private static final String VERSION = "1.0.0";
@@ -13,9 +15,10 @@ public class Main {
     // Constantes para opciones
     private static final int AGREGAR = 1;
     private static final int MOSTRAR = 2;
-    private static final int BUSCAR = 3;
-    private static final int ELIMINAR = 4;
-    private static final int SALIR = 5;
+    private static final int BUSCAR_POR_TITULO = 3;
+    private static final int BUSCAR_POR_GENERO = 4;
+    private static final int ELIMINAR = 5;
+    private static final int SALIR = 6;
 
     public static void main(String[] args) {
         // Plataforma
@@ -30,8 +33,9 @@ public class Main {
                     1. Agregar contenido
                     2. Mostrar todo
                     3. Buscar por título
-                    4. Eliminar
-                    5. Salir
+                    4. Buscar por género
+                    5. Eliminar
+                    6. Salir
                     """);
 
             switch (opcionElegida){
@@ -54,7 +58,7 @@ public class Main {
                 case MOSTRAR -> {
                     plataforma.mostrarTitulos();
                 }
-                case BUSCAR -> {
+                case BUSCAR_POR_TITULO -> {
                     String nombreBuscado = ScannerUtils.capturarTexto("Nombre del contenido a buscar: ");
                     Pelicula pelicula = plataforma.buscarPorTitulo(nombreBuscado);
 
@@ -63,6 +67,14 @@ public class Main {
                     } else {
                         System.out.println(nombreBuscado + " no existe dentro de la plataforma " + plataforma.getNombre());
                     }
+                }
+                case BUSCAR_POR_GENERO -> {
+                    String generoBuscado = ScannerUtils.capturarTexto("Nombre del genero a buscar: ");
+                    List<Pelicula> contenidoPorGenero = plataforma.buscarPorGenero(generoBuscado);
+
+                    System.out.println("Se encontraron " + contenidoPorGenero.size() + " películas del género " + generoBuscado + "\n");
+
+                    contenidoPorGenero.forEach(pelicula -> System.out.println(pelicula.obtenerFichaTecnica()));
                 }
                 case ELIMINAR -> {
                     String nombreEliminar = ScannerUtils.capturarTexto("Nombre del contenido a eliminar: ");
