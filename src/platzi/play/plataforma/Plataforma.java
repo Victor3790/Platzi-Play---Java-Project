@@ -39,9 +39,7 @@ public class Plataforma {
     }
 
     public void mostrarTitulos(){
-        for (Pelicula pelicula : contenido) {
-            System.out.println(pelicula.getTitulo());
-        }
+        contenido.forEach(pelicula -> System.out.println(pelicula.getTitulo()));
     }
 
     public String getNombre() {
