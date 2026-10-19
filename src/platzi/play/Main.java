@@ -21,6 +21,8 @@ public class Main {
         Plataforma plataforma = new Plataforma(NOMBRE_PLATAFORMA, VERSION);
         plataforma.mostrarInfo();
 
+        cargarPeliculas(plataforma);
+
         while (true) {
             int opcionElegida = ScannerUtils.capturarNumero("""
                     Ingrese una opción:
@@ -58,5 +60,18 @@ public class Main {
                 default -> System.out.println("Opción inválida, opción elegida: " + opcionElegida);
             }
         }
+    }
+
+    private static void cargarPeliculas(Plataforma plataforma) {
+        plataforma.agregar(new Pelicula("Shrek", 90, "Animada"));
+        plataforma.agregar(new Pelicula("Inception", 148, "Ciencia Ficción"));
+        plataforma.agregar(new Pelicula("Titanic", 195, "Drama", 4.6));
+        plataforma.agregar(new Pelicula("John Wick", 101, "Acción"));
+        plataforma.agregar(new Pelicula("El Conjuro", 112, "Terror", 3.0));
+        plataforma.agregar(new Pelicula("Coco", 105, "Animada", 4.7));
+        plataforma.agregar(new Pelicula("Interstellar", 169, "Ciencia Ficción", 5));
+        plataforma.agregar(new Pelicula("Joker", 122, "Drama"));
+        plataforma.agregar(new Pelicula("Toy Story", 81, "Animada", 4.5));
+        plataforma.agregar(new Pelicula("Avengers: Endgame", 181, "Acción", 3.9));
     }
 }
