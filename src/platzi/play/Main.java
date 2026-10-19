@@ -13,6 +13,7 @@ public class Main {
     // Constantes para opciones
     private static final int AGREGAR = 1;
     private static final int MOSTRAR = 2;
+    private static final int BUSCAR = 3;
     private static final int ELIMINAR = 4;
     private static final int SALIR = 5;
 
@@ -52,6 +53,16 @@ public class Main {
                 }
                 case MOSTRAR -> {
                     plataforma.mostrarTitulos();
+                }
+                case BUSCAR -> {
+                    String nombreBuscado = ScannerUtils.capturarTexto("Nombre del contenido a buscar: ");
+                    Pelicula pelicula = plataforma.buscarPorTitulo(nombreBuscado);
+
+                    if (pelicula != null) {
+                        System.out.println(pelicula.obtenerFichaTecnica());
+                    } else {
+                        System.out.println(nombreBuscado + " no existe dentro de la plataforma " + plataforma.getNombre());
+                    }
                 }
                 case ELIMINAR -> {
                     // falta
