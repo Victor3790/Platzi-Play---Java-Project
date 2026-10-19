@@ -65,7 +65,14 @@ public class Main {
                     }
                 }
                 case ELIMINAR -> {
-                    // falta
+                    String nombreEliminar = ScannerUtils.capturarTexto("Nombre del contenido a eliminar: ");
+                    Pelicula pelicula = plataforma.buscarPorTitulo(nombreEliminar);
+
+                    if (pelicula != null) {
+                        plataforma.eliminar(pelicula);
+                    } else {
+                        System.out.println(nombreEliminar + " no existe dentro de la plataforma " + plataforma.getNombre());
+                    }
                 }
                 case SALIR -> System.exit(0);
                 default -> System.out.println("Opción inválida, opción elegida: " + opcionElegida);
