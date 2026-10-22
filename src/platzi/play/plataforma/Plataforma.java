@@ -68,6 +68,12 @@ public class Plataforma {
                 .toList();
     }
 
+    public Pelicula getMasLarga(){
+        return contenido.stream()
+                .max(Comparator.comparingInt(Pelicula::getDuracion))
+                .orElse(null);
+    }
+
     public String getNombre() {
         return nombre;
     }
