@@ -21,7 +21,8 @@ public class Main {
     private static final int VER_POPULARES = 6;
     private static final int VER_MAS_POPULARES = 7;
     private static final int VER_MAS_LARGA = 8;
-    private static final int SALIR = 9;
+    private static final int VER_MAS_CORTA = 9;
+    private static final int SALIR = 10;
 
     public static void main(String[] args) {
         // Plataforma
@@ -43,7 +44,8 @@ public class Main {
                     6. Ver populares
                     7. Ver más populares
                     8. Ver más larga
-                    9. Salir
+                    9. Ver más corta
+                    10. Salir
                     """);
 
             switch (opcionElegida){
@@ -106,6 +108,10 @@ public class Main {
                 case VER_MAS_LARGA -> {
                     Pelicula peliculaMasLarga = plataforma.getMasLarga();
                     System.out.println("La película de mayor duración es " + peliculaMasLarga.getTitulo() + " con una duración de " + peliculaMasLarga.getDuracion() + " minutos.");
+                }
+                case VER_MAS_CORTA -> {
+                    Pelicula peliculaMasCorta = plataforma.getMasCorta();
+                    System.out.println("La película de menor duración es " + peliculaMasCorta.getTitulo() + " con una duración de " + peliculaMasCorta.getDuracion() + " minutos.");
                 }
                 case SALIR -> System.exit(0);
                 default -> System.out.println("Opción inválida, opción elegida: " + opcionElegida);

@@ -74,6 +74,12 @@ public class Plataforma {
                 .orElse(null);
     }
 
+    public Pelicula getMasCorta(){
+        return contenido.stream()
+                .min(Comparator.comparingInt(Pelicula::getDuracion))
+                .orElse(null);
+    }
+
     public String getNombre() {
         return nombre;
     }
