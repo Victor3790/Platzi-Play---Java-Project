@@ -54,9 +54,10 @@ public class Plataforma {
                 .sum();
     }
 
-    public List<Pelicula> getPopulares(){
+    public List<Pelicula> getPopulares(int cantidad){
         return contenido.stream()
                 .sorted(Comparator.comparingDouble(Pelicula::getCalificacion).reversed())
+                .limit(cantidad)
                 .toList();
     }
 

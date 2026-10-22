@@ -92,7 +92,7 @@ public class Main {
                     }
                 }
                 case VER_POPULARES -> {
-                    List<Pelicula> peliculasPopulares = plataforma.getPopulares();
+                    List<Pelicula> peliculasPopulares = plataforma.getPopulares(3);
                     peliculasPopulares.forEach(pelicula -> System.out.println(pelicula.getCalificacion() + " - " + pelicula.getTitulo()));
                 }
                 case SALIR -> System.exit(0);
