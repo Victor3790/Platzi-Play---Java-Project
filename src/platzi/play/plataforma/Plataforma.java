@@ -3,6 +3,7 @@ package platzi.play.plataforma;
 import platzi.play.contenido.Pelicula;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Plataforma {
@@ -51,6 +52,12 @@ public class Plataforma {
         return contenido.stream()
                 .mapToInt(Pelicula::getDuracion)
                 .sum();
+    }
+
+    public List<Pelicula> getPopulares(){
+        return contenido.stream()
+                .sorted(Comparator.comparingDouble(Pelicula::getCalificacion).reversed())
+                .toList();
     }
 
     public String getNombre() {

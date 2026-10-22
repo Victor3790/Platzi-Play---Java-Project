@@ -18,7 +18,8 @@ public class Main {
     private static final int BUSCAR_POR_TITULO = 3;
     private static final int BUSCAR_POR_GENERO = 4;
     private static final int ELIMINAR = 5;
-    private static final int SALIR = 6;
+    private static final int VER_POPULARES = 6;
+    private static final int SALIR = 7;
 
     public static void main(String[] args) {
         // Plataforma
@@ -37,7 +38,8 @@ public class Main {
                     3. Buscar por título
                     4. Buscar por género
                     5. Eliminar
-                    6. Salir
+                    6. Ver populares
+                    7. Salir
                     """);
 
             switch (opcionElegida){
@@ -88,6 +90,10 @@ public class Main {
                     } else {
                         System.out.println(nombreEliminar + " no existe dentro de la plataforma " + plataforma.getNombre());
                     }
+                }
+                case VER_POPULARES -> {
+                    List<Pelicula> peliculasPopulares = plataforma.getPopulares();
+                    peliculasPopulares.forEach(pelicula -> System.out.println(pelicula.getCalificacion() + " - " + pelicula.getTitulo()));
                 }
                 case SALIR -> System.exit(0);
                 default -> System.out.println("Opción inválida, opción elegida: " + opcionElegida);
