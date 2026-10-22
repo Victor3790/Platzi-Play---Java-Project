@@ -61,6 +61,13 @@ public class Plataforma {
                 .toList();
     }
 
+    public List<Pelicula> getMasPopulares(){
+        return contenido.stream()
+                .filter(pelicula -> pelicula.getCalificacion() >= 4.0)
+                .sorted(Comparator.comparingDouble(Pelicula::getCalificacion).reversed())
+                .toList();
+    }
+
     public String getNombre() {
         return nombre;
     }
