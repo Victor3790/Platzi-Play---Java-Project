@@ -27,6 +27,8 @@ public class Main {
 
         cargarPeliculas(plataforma);
 
+        System.out.println("Más de " + plataforma.getDuracionTotal() + " minutos de películas!!! \n");
+
         while (true) {
             int opcionElegida = ScannerUtils.capturarNumero("""
                     Ingrese una opción:
@@ -56,7 +58,8 @@ public class Main {
                     System.out.println("Número de elementos en la plataforma: " + plataforma.getContenido().size());
                 }
                 case MOSTRAR -> {
-                    plataforma.mostrarTitulos();
+                    List<String> titulos = plataforma.getTitulos();
+                    titulos.forEach(System.out::println);
                 }
                 case BUSCAR_POR_TITULO -> {
                     String nombreBuscado = ScannerUtils.capturarTexto("Nombre del contenido a buscar: ");

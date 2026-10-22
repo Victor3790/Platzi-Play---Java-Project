@@ -41,8 +41,16 @@ public class Plataforma {
                 .toList();
     }
 
-    public void mostrarTitulos(){
-        contenido.forEach(pelicula -> System.out.println(pelicula.getTitulo()));
+    public List<String> getTitulos(){
+        return contenido.stream()
+                .map(Pelicula::getTitulo)
+                .toList();
+    }
+
+    public int getDuracionTotal(){
+        return contenido.stream()
+                .mapToInt(Pelicula::getDuracion)
+                .sum();
     }
 
     public String getNombre() {
