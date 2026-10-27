@@ -11,16 +11,17 @@ public class Pelicula {
     private LocalDate fechaEstreno;
     private double calificacion;
     private boolean disponible;
+    private Idioma idioma;
 
-    public Pelicula(String titulo, int duracion, Genero genero) {
+    public Pelicula(String titulo, int duracion, Genero genero, Idioma idioma) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.genero = genero;
         this.fechaEstreno = LocalDate.now();
     }
 
-    public Pelicula(String titulo, int duracion, Genero genero, double calificacion) {
-        this(titulo, duracion, genero);
+    public Pelicula(String titulo, int duracion, Genero genero, double calificacion, Idioma idioma) {
+        this(titulo, duracion, genero, idioma);
         this.calificar(calificacion);
     }
 

@@ -1,6 +1,7 @@
 package platzi.play.util;
 
 import platzi.play.contenido.Genero;
+import platzi.play.contenido.Idioma;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -48,6 +49,24 @@ public class ScannerUtils {
                 return Genero.valueOf(entrada.toUpperCase());
             } catch (IllegalArgumentException e) {
                 System.out.println("Género no aceptado: ");
+            }
+        }
+    }
+
+    public static Idioma capturarIdionma(String mensaje){
+        while (true) {
+            System.out.println(mensaje);
+
+            for (Idioma idioma : Idioma.values()) {
+                System.out.println(" - " + idioma.name());
+            }
+
+            String entrada = SCANNER.nextLine();
+
+            try {
+                return Idioma.valueOf(entrada.toUpperCase());
+            } catch (IllegalArgumentException e) {
+                System.out.println("Idioma no aceptado: ");
             }
         }
     }
