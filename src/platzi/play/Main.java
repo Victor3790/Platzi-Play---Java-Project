@@ -56,7 +56,7 @@ public class Main {
                     System.out.println("Datos de la película");
 
                     String titulo = ScannerUtils.capturarTexto("Título");
-                    Genero genero = Genero.valueOf(ScannerUtils.capturarTexto("Genero"));
+                    Genero genero = ScannerUtils.capturarGenero("Genero");
                     int duracion = ScannerUtils.capturarNumero("Duración");
                     double calificacion = ScannerUtils.capturarDecimal("Calificación");
 
@@ -81,7 +81,7 @@ public class Main {
                     }
                 }
                 case BUSCAR_POR_GENERO -> {
-                    Genero generoBuscado = Genero.valueOf(ScannerUtils.capturarTexto("Nombre del genero a buscar: "));
+                    Genero generoBuscado = ScannerUtils.capturarGenero("Genero a buscar: ");
                     List<Pelicula> contenidoPorGenero = plataforma.buscarPorGenero(generoBuscado);
 
                     System.out.println("Se encontraron " + contenidoPorGenero.size() + " películas del género " + generoBuscado + "\n");
